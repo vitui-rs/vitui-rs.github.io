@@ -1,0 +1,406 @@
+<!DOCTYPE html><html lang="en" dir="ltr" data-theme="dark" data-has-toc data-has-sidebar class="astro-g5ptsecz"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Context | vitui</title><link rel="canonical" href="https://vitui-rs.github.io/reference/glossary/"/><link rel="sitemap" href="/sitemap-index.xml"/><link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml"/><meta name="generator" content="Astro v7.3.2"/><meta name="generator" content="Starlight v0.42.0"/><meta property="og:title" content="Context"/><meta property="og:type" content="article"/><meta property="og:url" content="https://vitui-rs.github.io/reference/glossary/"/><meta property="og:locale" content="en"/><meta property="og:description" content="The glossary for vitui — canonical vocabulary for code, comments, tickets, commits and conversation. Definitions only. The specs and ADRs carry the…"/><meta property="og:site_name" content="vitui"/><meta name="twitter:card" content="summary_large_image"/><meta name="description" content="The glossary for vitui — canonical vocabulary for code, comments, tickets, commits and conversation. Definitions only. The specs and ADRs carry the…"/><script>
+	window.StarlightThemeProvider = (() => {
+		const storedTheme =
+			typeof localStorage !== 'undefined' && localStorage.getItem('starlight-theme');
+		const theme =
+			storedTheme ||
+			(window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+		document.documentElement.dataset.theme = theme === 'light' ? 'light' : 'dark';
+		return {
+			updatePickers(theme = storedTheme || 'auto') {
+				document.querySelectorAll('starlight-theme-select').forEach((picker) => {
+					const select = picker.querySelector('select');
+					if (select) select.value = theme;
+					/** @type {HTMLTemplateElement | null} */
+					const tmpl = document.querySelector(`#theme-icons`);
+					const newIcon = tmpl && tmpl.content.querySelector('.' + theme);
+					if (newIcon) {
+						const oldIcon = picker.querySelector('svg.label-icon');
+						if (oldIcon) {
+							oldIcon.replaceChildren(...newIcon.cloneNode(true).childNodes);
+						}
+					}
+				});
+			},
+		};
+	})();
+</script><template id="theme-icons"><svg aria-hidden="true" class="light astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M5 12a1 1 0 0 0-1-1H3a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1Zm.64 5-.71.71a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l.71-.71A1 1 0 0 0 5.64 17ZM12 5a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1Zm5.66 2.34a1 1 0 0 0 .7-.29l.71-.71a1 1 0 1 0-1.41-1.41l-.66.71a1 1 0 0 0 0 1.41 1 1 0 0 0 .66.29Zm-12-.29a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.71-.71a1.004 1.004 0 1 0-1.43 1.41l.73.71ZM21 11h-1a1 1 0 0 0 0 2h1a1 1 0 0 0 0-2Zm-2.64 6A1 1 0 0 0 17 18.36l.71.71a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.76-.66ZM12 6.5a5.5 5.5 0 1 0 5.5 5.5A5.51 5.51 0 0 0 12 6.5Zm0 9a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Zm0 3.5a1 1 0 0 0-1 1v1a1 1 0 0 0 2 0v-1a1 1 0 0 0-1-1Z"/></svg><svg aria-hidden="true" class="dark astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M21.64 13a1 1 0 0 0-1.05-.14 8.049 8.049 0 0 1-3.37.73 8.15 8.15 0 0 1-8.14-8.1 8.59 8.59 0 0 1 .25-2A1 1 0 0 0 8 2.36a10.14 10.14 0 1 0 14 11.69 1 1 0 0 0-.36-1.05Zm-9.5 6.69A8.14 8.14 0 0 1 7.08 5.22v.27a10.15 10.15 0 0 0 10.14 10.14 9.784 9.784 0 0 0 2.1-.22 8.11 8.11 0 0 1-7.18 4.32v-.04Z"/></svg><svg aria-hidden="true" class="auto astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z"/></svg></template><link rel="stylesheet" href="/_astro/print.ehPL0gv-.css" media="print"><link rel="stylesheet" href="/_astro/common.DO89otlU.css"><style>@layer starlight.components{.card:where(.astro-oag6qnet){--sl-card-border:var(--sl-color-purple);--sl-card-bg:var(--sl-color-purple-low);border:1px solid var(--sl-color-gray-5);background-color:var(--sl-color-black);flex-direction:column;gap:clamp(.5rem,.125rem + 1vw,1rem);padding:clamp(1rem,.125rem + 3vw,2.5rem)}.card:where(.astro-oag6qnet):nth-child(4n+1){--sl-card-border:var(--sl-color-orange);--sl-card-bg:var(--sl-color-orange-low)}.card:where(.astro-oag6qnet):nth-child(4n+3){--sl-card-border:var(--sl-color-green);--sl-card-bg:var(--sl-color-green-low)}.card:where(.astro-oag6qnet):nth-child(4n+4){--sl-card-border:var(--sl-color-red);--sl-card-bg:var(--sl-color-red-low)}.card:where(.astro-oag6qnet):nth-child(4n+5){--sl-card-border:var(--sl-color-blue);--sl-card-bg:var(--sl-color-blue-low)}.title:where(.astro-oag6qnet){font-weight:600;font-size:var(--sl-text-h4);color:var(--sl-color-white);line-height:var(--sl-line-height-headings);align-items:center;gap:1rem}.card:where(.astro-oag6qnet) .icon:where(.astro-oag6qnet){border:1px solid var(--sl-card-border);background-color:var(--sl-card-bg);border-radius:.25rem;flex-shrink:0;padding:.2em}.card:where(.astro-oag6qnet) .body:where(.astro-oag6qnet){font-size:clamp(var(--sl-text-sm), calc(.5rem + 1vw), var(--sl-text-body));margin:0}.card-grid:where(.astro-7qmvx3iy){grid-template-columns:100%;gap:1rem;display:grid}.card-grid:where(.astro-7qmvx3iy)>*{margin-top:0!important}@media (width>=50rem){.card-grid:where(.astro-7qmvx3iy){grid-template-columns:1fr 1fr;gap:1.5rem}.stagger:where(.astro-7qmvx3iy){--stagger-height:5rem;padding-bottom:var(--stagger-height)}.stagger:where(.astro-7qmvx3iy)>:nth-child(2n){transform:translateY(var(--stagger-height))}}.sl-link-card:where(.astro-zaaezwya){border:1px solid var(--sl-color-gray-5);box-shadow:var(--sl-shadow-sm);border-radius:.5rem;grid-template-columns:1fr auto;gap:.5rem;padding:1rem;display:grid;position:relative}a:where(.astro-zaaezwya){line-height:var(--sl-line-height-headings);text-decoration:none}a:where(.astro-zaaezwya):before{content:"";position:absolute;inset:0}.stack:where(.astro-zaaezwya){flex-direction:column;gap:.5rem}.title:where(.astro-zaaezwya){color:var(--sl-color-white);font-weight:600;font-size:var(--sl-text-lg)}.description:where(.astro-zaaezwya){color:var(--sl-color-gray-3);line-height:1.5}.icon:where(.astro-zaaezwya){color:var(--sl-color-gray-3)}.sl-link-card:where(.astro-zaaezwya):hover{background:var(--sl-color-gray-7,var(--sl-color-gray-6));border-color:var(--sl-color-gray-2)}.sl-link-card:where(.astro-zaaezwya):hover .icon:where(.astro-zaaezwya){color:var(--sl-color-white)}}
+@layer starlight.components{svg:where(.astro-hkc32dio){color:var(--sl-icon-color);font-size:var(--sl-icon-size,1em);width:1em;height:1em}}
+@layer starlight.components{.sl-steps{--bullet-size:calc(var(--sl-line-height) * 1rem);--bullet-margin:.375rem;counter-reset:steps-counter var(--sl-steps-start,0);padding-inline-start:0;list-style:none}.sl-steps>li{counter-increment:steps-counter;padding-inline-start:calc(var(--bullet-size) + 1rem);min-height:calc(var(--bullet-size) + var(--bullet-margin));padding-bottom:1px;position:relative}.sl-steps>li+li{margin-top:0}.sl-steps>li:before{content:counter(steps-counter);top:0;width:var(--bullet-size);height:var(--bullet-size);line-height:var(--bullet-size);font-size:var(--sl-text-xs);text-align:center;color:var(--sl-color-white);background-color:var(--sl-color-gray-6);box-shadow:inset 0 0 0 1px var(--sl-color-gray-5);border-radius:99rem;font-weight:600;position:absolute;inset-inline-start:0}.sl-steps>li:after{--guide-width:1px;content:"";top:calc(var(--bullet-size) + var(--bullet-margin));bottom:var(--bullet-margin);width:var(--guide-width);background-color:var(--sl-color-hairline-light);position:absolute;inset-inline-start:calc((var(--bullet-size) - var(--guide-width)) / 2)}}@layer starlight.content{.sl-steps>li>:first-child{--lh:calc(1em * var(--sl-line-height));--shift-y:calc(.5 * (var(--bullet-size) - var(--lh)));transform:translateY(var(--shift-y));margin-bottom:var(--shift-y)}.sl-steps>li>:first-child:where(h1,h2,h3,h4,h5,h6){--lh:calc(1em * var(--sl-line-height-headings))}@supports (--prop:1lh){.sl-steps>li>:first-child{--lh:1lh}}}
+</style><script type="module" src="/_astro/page.Dwipeu-R.js"></script></head><body class="astro-g5ptsecz"><a class="sl-skip-link astro-qb7clj6f" href="#_top">Skip to content</a><div class="page sl-flex astro-yntsjkba"><header class="header astro-yntsjkba"><div class="header astro-by6fddyj"><div class="title-wrapper sl-flex astro-by6fddyj"><a href="/" class="site-title sl-flex astro-6rvad3va"><span class="astro-6rvad3va" translate="no">vitui</span></a></div><div class="sl-flex print:hidden astro-by6fddyj"><site-search class="astro-by6fddyj astro-b5kgnn7o" data-translations="{&quot;placeholder&quot;:&quot;Search&quot;}"><button data-open-modal disabled aria-label="Search" aria-keyshortcuts="Control+K" class="astro-b5kgnn7o"><svg aria-hidden="true" class="astro-b5kgnn7o astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M21.71 20.29 18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a.999.999 0 0 0 1.42 0 1 1 0 0 0 0-1.39ZM11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14Z"/></svg><span class="sl-hidden md:sl-block astro-b5kgnn7o" aria-hidden="true">Search</span><kbd class="sl-hidden md:sl-flex astro-b5kgnn7o" style="display: none;"><kbd class="astro-b5kgnn7o">Ctrl</kbd><kbd class="astro-b5kgnn7o">K</kbd></kbd></button><dialog style="padding:0" aria-label="Search" class="astro-b5kgnn7o"><div class="dialog-frame sl-flex astro-b5kgnn7o"><button data-close-modal class="sl-flex md:sl-hidden astro-b5kgnn7o">Cancel</button><div class="search-container astro-b5kgnn7o"><div id="starlight__search" class="astro-b5kgnn7o"></div></div></div></dialog></site-search><script>
+	(() => {
+		const openBtn = document.querySelector('button[data-open-modal]');
+		const shortcut = openBtn?.querySelector('kbd');
+		if (!openBtn || !(shortcut instanceof HTMLElement)) return;
+		const platformKey = shortcut.querySelector('kbd');
+		if (platformKey && /(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)) {
+			platformKey.textContent = '⌘';
+			openBtn.setAttribute('aria-keyshortcuts', 'Meta+K');
+		}
+		shortcut.style.display = '';
+	})();
+</script><script type="module" src="/_astro/Search.astro_astro_type_script_index_0_lang.DZqJ8Bdf.js"></script></div><div class="sl-hidden md:sl-flex print:hidden right-group astro-by6fddyj"><div class="sl-flex social-icons astro-by6fddyj"><a href="https://github.com/vitui-rs/vitui" rel="me" class="sl-flex astro-n2mnl6yq"><span class="sr-only astro-n2mnl6yq">GitHub</span><svg aria-hidden="true" class="astro-n2mnl6yq astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.08 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3Z"/></svg></a></div><starlight-theme-select><label style="--sl-select-width: 6.25em" class="astro-2z5xp7gb"><span class="sr-only astro-2z5xp7gb">Select theme</span><svg aria-hidden="true" class="icon label-icon astro-2z5xp7gb astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z"/></svg><select autocomplete="off" class="astro-2z5xp7gb"><option value="dark" class="astro-2z5xp7gb">Dark</option><option value="light" class="astro-2z5xp7gb">Light</option><option value="auto" selected class="astro-2z5xp7gb">Auto</option></select><svg aria-hidden="true" class="icon caret astro-2z5xp7gb astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-theme-select><script>
+	StarlightThemeProvider.updatePickers();
+</script><script type="module">var e=`starlight-theme`,t=e=>e===`auto`||e===`dark`||e===`light`?e:`auto`,n=()=>t(typeof localStorage<`u`&&localStorage.getItem(e));function r(t){typeof localStorage<`u`&&localStorage.setItem(e,t===`light`||t===`dark`?t:``)}var i=()=>matchMedia(`(prefers-color-scheme: light)`).matches?`light`:`dark`;function a(e){StarlightThemeProvider.updatePickers(e),document.documentElement.dataset.theme=e===`auto`?i():e,r(e)}matchMedia(`(prefers-color-scheme: light)`).addEventListener(`change`,()=>{n()===`auto`&&a(`auto`)});var o=class extends HTMLElement{constructor(){super(),a(n()),this.querySelector(`select`)?.addEventListener(`change`,e=>{e.currentTarget instanceof HTMLSelectElement&&a(t(e.currentTarget.value))})}};customElements.define(`starlight-theme-select`,o);</script><script type="module">var e=class extends HTMLElement{constructor(){super();let e=this.querySelector(`select`);e&&(e.addEventListener(`change`,e=>{e.currentTarget instanceof HTMLSelectElement&&(window.location.pathname=e.currentTarget.value)}),window.addEventListener(`pageshow`,t=>{if(!t.persisted)return;let n=e.querySelector(`option[selected]`)?.index;n!==e.selectedIndex&&(e.selectedIndex=n??0)}))}};customElements.define(`starlight-lang-select`,e);</script></div></div></header><nav class="sidebar print:hidden astro-yntsjkba" aria-label="Main"><button popovertarget="starlight__sidebar" class="sl-menu-button sl-flex md:sl-hidden print:hidden astro-r2osgdlg"><svg aria-hidden="true" class="open-menu astro-r2osgdlg astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M3 8h18a1 1 0 1 0 0-2H3a1 1 0 0 0 0 2Zm18 8H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2Zm0-5H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2Z"/></svg><svg aria-hidden="true" class="close-menu astro-r2osgdlg astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="m13.41 12 6.3-6.29a1.004 1.004 0 1 0-1.42-1.42L12 10.59l-6.29-6.3a1.004 1.004 0 0 0-1.42 1.42l6.3 6.29-6.3 6.29a1 1 0 0 0 0 1.42.998.998 0 0 0 1.42 0l6.29-6.3 6.29 6.3a.999.999 0 0 0 1.42 0 1 1 0 0 0 0-1.42L13.41 12Z"/></svg><span class="sr-only astro-r2osgdlg">Menu</span></button><script type="module">var e=class extends HTMLElement{constructor(){super(),matchMedia(`(min-width: 50em)`).addEventListener(`change`,()=>this.hidePopover()),this.addEventListener(`toggle`,({newState:e})=>this.trapFocus(e===`open`))}trapFocus(e){document.querySelectorAll(`.main-frame, .sl-skip-link`).forEach(t=>{t.toggleAttribute(`inert`,e)})}};customElements.define(`sl-sidebar-pane`,e);</script><sl-sidebar-pane popover id="starlight__sidebar" class="sidebar-pane astro-yntsjkba"><div class="sidebar-content sl-flex astro-yntsjkba"><sl-sidebar-state-persist data-hash="0cewqqo" class="astro-ipdry5cl"><script aria-hidden="true">
+		(() => {
+			try {
+				if (!matchMedia('(min-width: 50em)').matches) return;
+				/** @type {HTMLElement | null} */
+				const target = document.querySelector('sl-sidebar-state-persist');
+				const state = JSON.parse(sessionStorage.getItem('sl-sidebar-state') || '0');
+				if (!target || !state || target.dataset.hash !== state.hash) return;
+				window._starlightScrollRestore = state.scroll;
+				customElements.define(
+					'sl-sidebar-restore',
+					class SidebarRestore extends HTMLElement {
+						connectedCallback() {
+							try {
+								const idx = parseInt(this.dataset.index || '');
+								const details = this.closest('details');
+								if (details && typeof state.open[idx] === 'boolean') details.open = state.open[idx];
+							} catch {}
+						}
+					}
+				);
+			} catch {}
+		})();
+	</script><ul class="top-level astro-rmhv4bp6"><li class="astro-rmhv4bp6"><details open class="astro-rmhv4bp6"><summary class="astro-rmhv4bp6"><span class="group-label astro-rmhv4bp6"><span class="large astro-rmhv4bp6">Start here</span></span><svg aria-hidden="true" class="caret astro-rmhv4bp6 astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="0"></sl-sidebar-restore><ul class="astro-rmhv4bp6"><li class="astro-rmhv4bp6"><a href="/start/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">Getting started</span></a></li><li class="astro-rmhv4bp6"><a href="/showcase/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">What it looks like</span></a></li><li class="astro-rmhv4bp6"><a href="/components/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">Components</span></a></li></ul></details></li><li class="astro-rmhv4bp6"><details open class="astro-rmhv4bp6"><summary class="astro-rmhv4bp6"><span class="group-label astro-rmhv4bp6"><span class="large astro-rmhv4bp6">Building components</span></span><svg aria-hidden="true" class="caret astro-rmhv4bp6 astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="1"></sl-sidebar-restore><ul class="astro-rmhv4bp6"><li class="astro-rmhv4bp6"><a href="/guide/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">Building components on vitui</span></a></li><li class="astro-rmhv4bp6"><a href="/guide/01-the-three-layers/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">1. The three layers</span></a></li><li class="astro-rmhv4bp6"><a href="/guide/02-the-frame/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">2. The frame</span></a></li><li class="astro-rmhv4bp6"><a href="/guide/03-your-first-component/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">3. Your first component</span></a></li><li class="astro-rmhv4bp6"><a href="/guide/04-identity/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">4. Identity</span></a></li><li class="astro-rmhv4bp6"><a href="/guide/05-interaction/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">5. Interaction</span></a></li><li class="astro-rmhv4bp6"><a href="/guide/06-the-keyboard/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">6. The keyboard</span></a></li><li class="astro-rmhv4bp6"><a href="/guide/07-layout-and-sizing/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">7. Layout and sizing</span></a></li><li class="astro-rmhv4bp6"><a href="/guide/08-theming/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">8. Theming</span></a></li><li class="astro-rmhv4bp6"><a href="/guide/09-state-lists-and-scrolling/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">9. State, lists and scrolling</span></a></li><li class="astro-rmhv4bp6"><a href="/guide/10-overlays/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">10. Overlays</span></a></li><li class="astro-rmhv4bp6"><a href="/guide/11-time-work-and-animation/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">11. Time, work and animation</span></a></li><li class="astro-rmhv4bp6"><a href="/guide/12-verifying-a-component/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">12. Verifying a component</span></a></li><li class="astro-rmhv4bp6"><a href="/guide/13-shipping-a-component-library/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">13. Shipping a component library</span></a></li></ul></details></li><li class="astro-rmhv4bp6"><details open class="astro-rmhv4bp6"><summary class="astro-rmhv4bp6"><span class="group-label astro-rmhv4bp6"><span class="large astro-rmhv4bp6">Evidence</span></span><svg aria-hidden="true" class="caret astro-rmhv4bp6 astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="2"></sl-sidebar-restore><ul class="astro-rmhv4bp6"><li class="astro-rmhv4bp6"><a href="/benchmarks/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">Benchmarks</span></a></li><li class="astro-rmhv4bp6"><a href="/terminals/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">Terminals</span></a></li></ul></details></li><li class="astro-rmhv4bp6"><details open class="astro-rmhv4bp6"><summary class="astro-rmhv4bp6"><span class="group-label astro-rmhv4bp6"><span class="large astro-rmhv4bp6">Reference</span></span><svg aria-hidden="true" class="caret astro-rmhv4bp6 astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="3"></sl-sidebar-restore><ul class="astro-rmhv4bp6"><li class="astro-rmhv4bp6"><a href="/reference/glossary/" aria-current="page" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">Glossary</span></a></li><li class="astro-rmhv4bp6"><details class="astro-rmhv4bp6"><summary class="astro-rmhv4bp6"><span class="group-label astro-rmhv4bp6"><span class="large astro-rmhv4bp6">Architecture specs</span></span><svg aria-hidden="true" class="caret astro-rmhv4bp6 astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="4"></sl-sidebar-restore><ul class="astro-rmhv4bp6"><li class="astro-rmhv4bp6"><a href="/spec/components/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">`vitui-components` — architecture spec</span></a></li><li class="astro-rmhv4bp6"><a href="/spec/engine/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">`vitui-engine` — architecture spec</span></a></li><li class="astro-rmhv4bp6"><a href="/spec/runtime/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">`vitui-runtime` — architecture spec</span></a></li></ul></details></li><li class="astro-rmhv4bp6"><details class="astro-rmhv4bp6"><summary class="astro-rmhv4bp6"><span class="group-label astro-rmhv4bp6"><span class="large astro-rmhv4bp6">Decision records</span></span><svg aria-hidden="true" class="caret astro-rmhv4bp6 astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.25rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></summary><sl-sidebar-restore data-index="5"></sl-sidebar-restore><ul class="astro-rmhv4bp6"><li class="astro-rmhv4bp6"><a href="/adr/" class="astro-rmhv4bp6"><span class="astro-rmhv4bp6">All 53, by number</span></a></li></ul></details></li></ul></details></li></ul><script aria-hidden="true">
+		(() => {
+			const scroller = document.getElementById('starlight__sidebar');
+			if (!window._starlightScrollRestore || !scroller) return;
+			scroller.scrollTop = window._starlightScrollRestore;
+			delete window._starlightScrollRestore;
+		})();
+	</script></sl-sidebar-state-persist><div class="md:sl-hidden"><div class="mobile-preferences sl-flex astro-p4azlveh"><div class="social-icons astro-p4azlveh"><a href="https://github.com/vitui-rs/vitui" rel="me" class="sl-flex astro-n2mnl6yq"><span class="sr-only astro-n2mnl6yq">GitHub</span><svg aria-hidden="true" class="astro-n2mnl6yq astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.08 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22l-.01 3.29c0 .31.2.69.82.57A12 12 0 0 0 12 .3Z"/></svg></a></div><starlight-theme-select><label style="--sl-select-width: 6.25em" class="astro-2z5xp7gb"><span class="sr-only astro-2z5xp7gb">Select theme</span><svg aria-hidden="true" class="icon label-icon astro-2z5xp7gb astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z"/></svg><select autocomplete="off" class="astro-2z5xp7gb"><option value="dark" class="astro-2z5xp7gb">Dark</option><option value="light" class="astro-2z5xp7gb">Light</option><option value="auto" selected class="astro-2z5xp7gb">Auto</option></select><svg aria-hidden="true" class="icon caret astro-2z5xp7gb astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71 8.46 9.17a1 1 0 1 0-1.41 1.42l4.24 4.24a1.002 1.002 0 0 0 1.42 0L17 10.59a1.002 1.002 0 0 0 0-1.42Z"/></svg></label></starlight-theme-select><script>
+	StarlightThemeProvider.updatePickers();
+</script></div></div></div></sl-sidebar-pane></nav><div class="main-frame astro-yntsjkba"><script type="module">var e=document.getElementById(`starlight__sidebar`),t=e?.querySelector(`sl-sidebar-state-persist`),n=`sl-sidebar-state`,r=()=>{let r=[],i=t?.dataset.hash||``;try{let e=sessionStorage.getItem(n),t=JSON.parse(e||`{}`);Array.isArray(t.open)&&t.hash===i&&(r=t.open)}catch{}return{hash:i,open:r,scroll:e?.scrollTop||0}},i=e=>{try{sessionStorage.setItem(n,JSON.stringify(e))}catch{}},a=()=>i(r()),o=(e,t)=>{let n=r();n.open[t]=e,i(n)};t?.addEventListener(`click`,e=>{if(!(e.target instanceof Element))return;let t=e.target.closest(`summary`)?.closest(`details`);if(!t)return;let n=t.querySelector(`sl-sidebar-restore`),r=parseInt(n?.dataset.index||``);isNaN(r)||o(!t.open,r)}),addEventListener(`visibilitychange`,()=>{document.visibilityState===`hidden`&&a()});</script><div class="lg:sl-flex astro-lrzkfocr"><aside class="right-sidebar-container print:hidden astro-lrzkfocr"><div class="right-sidebar astro-lrzkfocr"><div class="lg:sl-hidden astro-qok35upx"><mobile-starlight-toc data-min-h="2" data-max-h="3" class="astro-66cqc7ze"><nav aria-labelledby="starlight__on-this-page--mobile" class="astro-66cqc7ze"><details id="starlight__mobile-toc" class="astro-66cqc7ze"><summary id="starlight__on-this-page--mobile" class="sl-flex astro-66cqc7ze"><span class="toggle sl-flex astro-66cqc7ze">On this page<svg aria-hidden="true" class="caret astro-66cqc7ze astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1rem;"><path d="m14.83 11.29-4.24-4.24a1 1 0 1 0-1.42 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41 1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.24-4.24a1.002 1.002 0 0 0 0-1.42Z"/></svg></span><span class="display-current astro-66cqc7ze"></span></summary><div class="dropdown astro-66cqc7ze"><ul class="isMobile astro-jugkfwgx" style="--depth: 0;"><li style="--depth: 0;" class="astro-jugkfwgx"><a href="#_top" style="--depth: 0;" class="astro-jugkfwgx"><span style="--depth: 0;" class="astro-jugkfwgx">Overview</span></a></li><li style="--depth: 0;" class="astro-jugkfwgx"><a href="#layers" style="--depth: 0;" class="astro-jugkfwgx"><span style="--depth: 0;" class="astro-jugkfwgx">Layers</span></a></li><li style="--depth: 0;" class="astro-jugkfwgx"><a href="#drawing" style="--depth: 0;" class="astro-jugkfwgx"><span style="--depth: 0;" class="astro-jugkfwgx">Drawing</span></a></li><li style="--depth: 0;" class="astro-jugkfwgx"><a href="#the-loop" style="--depth: 0;" class="astro-jugkfwgx"><span style="--depth: 0;" class="astro-jugkfwgx">The loop</span></a></li><li style="--depth: 0;" class="astro-jugkfwgx"><a href="#layout-and-sizing" style="--depth: 0;" class="astro-jugkfwgx"><span style="--depth: 0;" class="astro-jugkfwgx">Layout and sizing</span></a></li><li style="--depth: 0;" class="astro-jugkfwgx"><a href="#scrolling" style="--depth: 0;" class="astro-jugkfwgx"><span style="--depth: 0;" class="astro-jugkfwgx">Scrolling</span></a></li><li style="--depth: 0;" class="astro-jugkfwgx"><a href="#overlays" style="--depth: 0;" class="astro-jugkfwgx"><span style="--depth: 0;" class="astro-jugkfwgx">Overlays</span></a></li><li style="--depth: 0;" class="astro-jugkfwgx"><a href="#data" style="--depth: 0;" class="astro-jugkfwgx"><span style="--depth: 0;" class="astro-jugkfwgx">Data</span></a></li><li style="--depth: 0;" class="astro-jugkfwgx"><a href="#threads" style="--depth: 0;" class="astro-jugkfwgx"><span style="--depth: 0;" class="astro-jugkfwgx">Threads</span></a></li><li style="--depth: 0;" class="astro-jugkfwgx"><a href="#terminal" style="--depth: 0;" class="astro-jugkfwgx"><span style="--depth: 0;" class="astro-jugkfwgx">Terminal</span></a></li><li style="--depth: 0;" class="astro-jugkfwgx"><a href="#verification" style="--depth: 0;" class="astro-jugkfwgx"><span style="--depth: 0;" class="astro-jugkfwgx">Verification</span></a></li></ul></div></details></nav></mobile-starlight-toc><script type="module" src="/_astro/MobileTableOfContents.astro_astro_type_script_index_0_lang.BcSo_yiZ.js"></script></div><div class="right-sidebar-panel sl-hidden lg:sl-block astro-qok35upx"><div class="sl-container astro-qok35upx"><starlight-toc data-min-h="2" data-max-h="3"><nav aria-labelledby="starlight__on-this-page"><h2 id="starlight__on-this-page">On this page</h2><ul class="astro-jugkfwgx" style="--depth: 0;"><li style="--depth: 0;" class="astro-jugkfwgx"><a href="#_top" style="--depth: 0;" class="astro-jugkfwgx"><span style="--depth: 0;" class="astro-jugkfwgx">Overview</span></a></li><li style="--depth: 0;" class="astro-jugkfwgx"><a href="#layers" style="--depth: 0;" class="astro-jugkfwgx"><span style="--depth: 0;" class="astro-jugkfwgx">Layers</span></a></li><li style="--depth: 0;" class="astro-jugkfwgx"><a href="#drawing" style="--depth: 0;" class="astro-jugkfwgx"><span style="--depth: 0;" class="astro-jugkfwgx">Drawing</span></a></li><li style="--depth: 0;" class="astro-jugkfwgx"><a href="#the-loop" style="--depth: 0;" class="astro-jugkfwgx"><span style="--depth: 0;" class="astro-jugkfwgx">The loop</span></a></li><li style="--depth: 0;" class="astro-jugkfwgx"><a href="#layout-and-sizing" style="--depth: 0;" class="astro-jugkfwgx"><span style="--depth: 0;" class="astro-jugkfwgx">Layout and sizing</span></a></li><li style="--depth: 0;" class="astro-jugkfwgx"><a href="#scrolling" style="--depth: 0;" class="astro-jugkfwgx"><span style="--depth: 0;" class="astro-jugkfwgx">Scrolling</span></a></li><li style="--depth: 0;" class="astro-jugkfwgx"><a href="#overlays" style="--depth: 0;" class="astro-jugkfwgx"><span style="--depth: 0;" class="astro-jugkfwgx">Overlays</span></a></li><li style="--depth: 0;" class="astro-jugkfwgx"><a href="#data" style="--depth: 0;" class="astro-jugkfwgx"><span style="--depth: 0;" class="astro-jugkfwgx">Data</span></a></li><li style="--depth: 0;" class="astro-jugkfwgx"><a href="#threads" style="--depth: 0;" class="astro-jugkfwgx"><span style="--depth: 0;" class="astro-jugkfwgx">Threads</span></a></li><li style="--depth: 0;" class="astro-jugkfwgx"><a href="#terminal" style="--depth: 0;" class="astro-jugkfwgx"><span style="--depth: 0;" class="astro-jugkfwgx">Terminal</span></a></li><li style="--depth: 0;" class="astro-jugkfwgx"><a href="#verification" style="--depth: 0;" class="astro-jugkfwgx"><span style="--depth: 0;" class="astro-jugkfwgx">Verification</span></a></li></ul></nav></starlight-toc><script type="module" src="/_astro/TableOfContents.astro_astro_type_script_index_0_lang.Csloo1VZ.js"></script></div></div></div></aside><div class="main-pane astro-lrzkfocr"><main data-pagefind-body class="astro-g5ptsecz" lang="en" dir="ltr"><div class="content-panel astro-a7po4psb"><div class="sl-container astro-a7po4psb"><h1 id="_top" class="astro-bebwqqxs">Context</h1></div></div><div class="content-panel astro-a7po4psb"><div class="sl-container astro-a7po4psb"><div class="sl-markdown-content"><p>The glossary for <code dir="auto">vitui</code> — canonical vocabulary for code, comments, tickets, commits and
+conversation. Definitions only. The specs and ADRs carry the arguments and the numbers.</p>
+<div class="sl-heading-wrapper level-h2"><h2 id="layers">Layers</h2><a class="sl-anchor-link" href="#layers"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Layers”</span></a></div>
+<ul>
+<li><strong>Engine</strong> (<code dir="auto">vitui-engine</code>) — everything touching the terminal: cells, surfaces, layers,
+compositing, damage, the bytes on the wire, input, and the clock deciding <em>when</em> they go out. Lays
+nothing out, knows no widget, never iterates application data, never calls the runtime.</li>
+<li><strong>Runtime</strong> (<code dir="auto">vitui-runtime</code>) — layout, identity, focus, hit-testing, routing, key maps, theming,
+overlays, the data contract. Convenience is its job, not the engine’s; replaceable on the same engine.</li>
+<li><strong>Components</strong> (<code dir="auto">vitui-components</code>) — what an application author uses. A component author never names
+an engine type.</li>
+<li><strong>Draw context</strong> — what a component is handed to draw with: a view plus what that runtime decided a
+component needs (time, a place to ask for a frame, focus, theme). The runtime’s, so two runtimes offer two.</li>
+<li><strong>Component state</strong> — what a component keeps <em>about</em> a view of data (selection, offset, expanded set),
+separate from the data so two components can show one table owning neither.</li>
+<li><strong>Identity</strong> — the name a widget keeps between frames: parent identity, <code dir="auto">file:line:col</code>, plus a key where
+one call site makes many widgets. Focus, hit-testing, interest, overlay ownership and scroll association
+key on it; a memo does not. Non-negotiable: a container returning a rectangle preserves its children’s
+identity and one taking a closure renames them (<code dir="auto">scope</code>/<code dir="auto">scroll_scope</code> excepted); an <code dir="auto">Id</code> differs between
+runs and <strong>may never be persisted</strong>. ADR 0013.</li>
+<li><strong>Frame state</strong> — hit index, focus ring, overlay queue, deadline sink, key queue: <strong>rebuilt from the draw,
+never diffed</strong>, so a widget that did not draw cannot be clicked, focused or hovered though its cells still
+look right. Four id-keyed facts outlive it, drawing being unable to re-declare them: pointer grab, press
+origin and focus (swept when their widget stops drawing) and the click record (not swept).</li>
+<li><strong>Scene tree</strong> — <em>refused, named so nobody re-derives it.</em> The clip stack <strong>is</strong> the call stack, the id path
+is the <strong>closure</strong> tree, the layer stack is a sorted <code dir="auto">Vec</code>, and sizing takes no measure walk.</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="drawing">Drawing</h2><a class="sl-anchor-link" href="#drawing"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Drawing”</span></a></div>
+<ul>
+<li><strong>Cell</strong> — one addressable grid position; a double-width glyph occupies two.</li>
+<li><strong>Surface</strong> — a rectangular grid of cells. In a stack it holds cells and damage only and draws into the
+<em>stack’s</em> tables, which lets one layer composite into another as a plain copy.</li>
+<li><strong>Handle table</strong> — the grapheme interner and extended-style table a cell’s handles point into. <strong>One set per
+layer stack.</strong> Nothing public names a handle.</li>
+<li><strong>Extended style</strong> — a style whose colours live in a handle table rather than its <code dir="auto">u64</code>. A <em>cost, not a state</em>:
+clearing both channels puts the cell back inline.</li>
+<li><strong>Sweep</strong> — reclaiming handle-table entries nothing points at. Never inside a frame, marks no damage, and forces
+a full repaint when it renumbers, handle identity being what the mirror compares across frames. The URI table is
+not swept. Its trigger is the <strong>high-water mark</strong>: twice the live count, with a floor — a starting value, not a
+decision.</li>
+<li><strong>View</strong> — a borrowed rectangle of a surface (origin, clip, content offset), narrowable, never widenable.</li>
+<li><strong>Viewport</strong> — a surface addressed in content coordinates with only a window real. <strong>Visibility query</strong> — the
+engine saying which content coordinates fall inside that window, so the caller can skip the rest; it still
+iterates and measures nothing.</li>
+<li><strong>Clip region</strong> — where a write may land; outside it writes are discarded silently and cheaply.</li>
+<li><strong>Drawing verb</strong> — one call putting something into a surface. Span-shaped, because damage is marked once per verb.</li>
+<li><strong>Layer</strong> — a rectangle with a z-order. A <strong>content layer</strong> carries its own cells; an <strong>operator layer</strong> has none
+and transforms what is there — necessary because a cell has no alpha.</li>
+<li><strong>Mix</strong> — the one blend mode: a colour and how far toward it what is there moves, out of 256. Zero is the identity
+and never reaches a cell. A gradient is a fill with a varying style, not a mix.</li>
+<li><strong>Shadow</strong> — a layer darkening what lies beneath, offset from its owner. <strong>Lifting</strong> is the cue that a layer sits
+above; a shadow is its commonest form.</li>
+<li><strong>Composite</strong> — resolve the stack bottom-up into one grid, repairing every seam.</li>
+<li><strong>Exposure</strong> — an area needing repaint though no layer’s damage says so, its owner having been removed, reordered
+or moved. Recorded by the stack, folded into the frame’s damage once.</li>
+<li><strong>Ground</strong> — what an untouched cell holds: a blank if opaque, the <code dir="auto">EMPTY</code> sentinel otherwise.</li>
+<li><strong>Floor</strong> — the lowest layer that covers a run opaquely, so the composite starts there and skips everything
+below. A layer <em>floors</em> a run when it is opaque and its rectangle contains the whole run; <code dir="auto">Layer::floors</code> and the
+<code dir="auto">floor</code> it is searched for are the same word on purpose.</li>
+<li><strong>Repair</strong> — blanking the half of a double-width pair that lost its partner. It keeps its style and returns to the
+ground, being a cell nobody asked to write.</li>
+<li><strong>Seam</strong> — the boundary between a painted span and the cell beside it. Exactly two per paint, so repair is constant
+per span rather than a scan. A composite seam repair damages cells <strong>outside</strong> the layer’s rectangle, and one not
+reported is a half the terminal goes on showing.</li>
+<li><strong>Frame</strong> — one composited immutable grid, produced on the app thread and staying there.</li>
+<li><strong>Snapshot</strong> — the hand-off to the render thread: damaged runs and their cells, nothing else.</li>
+<li><strong>Packet</strong> — a snapshot in flight plus its buffer, <strong>leased</strong> from a pool and returned. Self-contained: handles are
+resolved at pack time into a side table it owns, so the app thread may sweep while a frame is written. A lease is
+never invalidated from outside; a frame a resize made wrong is discarded and the buffer returns.</li>
+<li><strong>Damage</strong> — the region that changed. The central optimisation, and the central invariant: <em>frame cost is
+proportional to visible cells, never to data volume.</em> <strong>The invariant is the engine’s and it holds there without
+exception</strong>, because the engine never iterates application data at all. A component above it that must fold — one
+that cannot know which of a million points reach its rectangle without looking at them — states the same budget as
+a split instead: <em>the frame costs the rectangle, the edit costs the data</em>, behind a memo (components spec §13).
+Quoting this line at a component without that half is how a reader ends up wrong about <code dir="auto">chart</code>; the split is
+obligation O6’s subject and is gated on both halves.</li>
+<li><strong>Run</strong> — one damaged span on one row, inclusive both ends; the only shape the serializer sees, and their order <em>is</em>
+the byte order. <strong>The word is the engine’s</strong> — a contiguous interval of selected indices is a <strong><code dir="auto">Span</code></strong>.</li>
+<li><strong>Serialize</strong> — snapshot to bytes. The engine writes its own escape sequences; the backend is input and terminal
+mode only.</li>
+<li><strong>Mirror</strong> — the render thread’s record of what the terminal is <em>currently showing</em>, as against a frame, which is
+what the application <em>wants</em> shown. ADR 0006.</li>
+<li><strong>Unknown</strong> — a part of the mirror that cannot be trusted (startup, resize, a renumbering sweep), written rather
+than compared — which is how a full repaint expresses itself without a mode. The rule: <strong>never compare against what
+the mirror does not know</strong>; the danger is the false <em>equality</em>. The unit is the <strong>cell</strong>, and unknown is a <em>value</em>
+(<code dir="auto">EMPTY</code>), so it costs no flag and no branch.</li>
+<li><strong>Equality filter</strong> — comparing each damaged cell against the mirror inside the run scan and emitting only what
+changed. Always on, damage area not predicting whether it pays. The same comparison the scroll region’s first
+obligation makes.</li>
+<li><strong>Gap merge</strong> — repainting between two changes rather than moving the cursor, <strong>priced in bytes</strong>, a cell being one
+byte of ASCII and three of braille. Also bridges two runs on one row through columns in the mirror but not the packet.</li>
+<li><strong>Scroll region</strong> — the terminal moving a band of rows, an order of magnitude or two cheaper than repainting it, and
+emitted only after being <strong>verified</strong> against the mirror — never guessed, a wrong guess losing exactly the columns
+nothing can put back.</li>
+<li><strong>Band</strong> — the rows a scroll moves and exposes. One band and one shift verified per frame. Its two <strong>obligations</strong>:
+every moved row already holds, in the mirror, what the frame wants where it lands; every exposed row is blank in
+every column not repainted — checked first, being smaller and the one that fails. Whole-screen bands set no margins;
+<strong>horizontal</strong> margins are deliberately unused.</li>
+<li><strong>Shortest</strong> — the one cursor encoding: absolute position, absolute column, relative forward, CR, CR plus line feeds,
+<strong>priced by digit count</strong>. Ties go <strong>absolute</strong>, a relative move compounding an error — the same reason a non-ASCII
+cluster forbids the relative form for the rest of its row.</li>
+<li><strong>Session framing</strong> — bytes holding for the whole attachment (auto-wrap off, alternate screen), against <strong>frame
+framing</strong> — the per-frame style reset, sync block and hyperlink close. Frame framing is written on the first cell
+that reaches the wire, so a frame the equality filter emptied says nothing at all.</li>
+<li><strong>The two SGR spellings</strong> — the <strong>modern</strong> ITU-T colon form and the <strong>legacy</strong> xterm semicolon form, which no query
+separates. The engine emits modern; a quirk or override selects legacy. The same choice recurs in the underline colour.</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="the-loop">The loop</h2><a class="sl-anchor-link" href="#the-loop"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “The loop”</span></a></div>
+<ul>
+<li><strong>Screen</strong> — the app thread’s handle to the attached terminal, and the whole engine from the runtime’s side.
+Dropping it gives the terminal back.</li>
+<li><strong>Frame clock</strong> — when a composed frame becomes bytes: a ceiling in hertz enforced as a <strong>minimum gap, not a tick</strong>.</li>
+<li><strong>Wake</strong> — why the thread came back: input, a posted job, a deadline, a quit. Distinct from an <strong>event</strong>, which is
+<em>what happened</em>.</li>
+<li><strong>Owed frame</strong> — a frame the pacing gate deferred, not dropped; it arrives as a deadline, because what deferred it
+was the clock. Nothing is owed when nothing was damaged.</li>
+<li><strong>Time anchor</strong> — a moment stored so a moving value is a <em>function of the frame’s <code dir="auto">now</code></em>. Distinct from an
+<strong>overlay’s anchor</strong>, a rectangle a popup is placed against.</li>
+<li><strong>Phase</strong> — where something moving has got to, as a value rather than a moment. <strong>Stored state may be a time anchor,
+never a phase</strong>: a phase accumulated from a nominal interval is wrong by more the longer it runs.</li>
+<li><strong>Frame’s <code dir="auto">now</code></strong> — the moment a frame was sampled at, once. A component reads it and never the machine’s clock: one
+sampling its own is invisible to a pinned clock and disagrees with everything else on screen.</li>
+<li><strong>Event</strong> — a key, mouse action, paste, resize or focus change; owned outright, carrying when it was read, saying
+nothing about which widget it concerns.</li>
+<li><strong>Intent</strong> — what decides whether an event may be discarded. Presses, releases, wheel turns, keystrokes and resizes
+never are; intermediate pointer positions collapse. ADR 0008.</li>
+<li><strong>Base key</strong> — which key was pressed, as against what it printed; separate fields, one alone making <code dir="auto">Ctrl+Shift+5</code>
+on a non-US layout unbindable.</li>
+<li><strong>Key text</strong> — what a keystroke produced, as a grapheme cluster, stored inline. Too long is reported as <strong>nothing at
+all</strong>: half a cluster is a different cluster.</li>
+<li><strong>Read boundary</strong> — where one <code dir="auto">read</code> ended; meaningful in one place only, a lone trailing escape byte being Escape.</li>
+<li><strong>Type-ahead</strong> — bytes typed before the program was ready, set aside during detection and handed over ahead of the
+channel, being older.</li>
+<li><strong>Unrecognised sequence</strong> — dropped, but counted with the last kept whole, silent discard being the defect class that
+costs a day.</li>
+<li><strong>Interest</strong> — what a component declares it wants, stated during the draw with its region. Declaring nothing costs
+nothing, and a component outside the visible area declares nothing by not drawing.</li>
+<li><strong>Tracking level</strong> — how much the terminal reports about the pointer: nothing, buttons, drag, motion. Totally
+ordered, so several needs combine by taking the highest.</li>
+<li><strong>Focus ring</strong> — the widgets that can hold the keyboard, in <code dir="auto">Tab</code> order, rebuilt every frame by those declaring
+focusability. Declared, never derived: clickable is not a tab stop. Entries carry their rectangle in content
+coordinates. A <strong>tab stop</strong> is a position <code dir="auto">Tab</code> can land on — a scope may collapse a range onto one, so a menu bar
+of seven is seven entries and one stop.</li>
+<li><strong>Focus scope</strong> — a ring range changing what <code dir="auto">Tab</code> does: a <em>group</em> is one stop, a <em>trap</em> cannot be left, an
+<em>isolated</em> scope keeps <code dir="auto">Tab</code> for the focused widget. Frame-local, and the one closure-taking construct that does
+<strong>not</strong> rename its children.</li>
+<li><strong>Base layout</strong> — where a key physically is, as opposed to what it printed. <strong>Base layout reported</strong> — whether the
+terminal says so: <strong>one boolean, never a ladder</strong>, read and never edited. A binding is not rewritten because the
+terminal is poor; it simply does not fire.</li>
+<li><strong>Chord</strong> — a key plus modifiers, naming either a base-layout position or a printed character — and which is part of
+the chord. Caps and num lock are keyboard <em>state</em> and never part of one. <strong>Shift is state on a printed character and
+intent on a position</strong>: <code dir="auto">+</code> cannot be typed without it, so a chord on the character compares the five modifiers that
+are not shift and a chord on the position compares all six (ADR 0053).</li>
+<li><strong>Binding</strong> — chords, an action, and the help text naming it, declared once so it can be routed and rendered.
+<strong>Key map</strong> — an ordered set, first match wins, consulted after the focused widget and its scopes decline; the
+innermost scope holding the focus answers first.</li>
+<li><strong>Handoff slot</strong> — a one-value drop point from a worker, takeable only without waiting, so a background result is
+something the app thread <em>finds</em>.</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="layout-and-sizing">Layout and sizing</h2><a class="sl-anchor-link" href="#layout-and-sizing"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Layout and sizing”</span></a></div>
+<ul>
+<li><strong>Sizing function</strong> — a plain function beside a component answering how large it wants to be: the same <code dir="auto">&amp;data</code> plus
+the extent it is about to be given. It takes no draw context, so it cannot draw, claim an identity or route.</li>
+<li><strong>Measure pass</strong> — <em>deliberately absent</em>: either a trait every component implements or a second frame, both built
+and priced.</li>
+<li><strong>Dry run</strong> — drawing into a discard surface and reading how far the verbs reached. Not the layout mechanism; kept
+as the <strong>test</strong> that a sizing function still agrees with its component.</li>
+<li><strong>Drawn extent</strong> — the largest content coordinate any verb touched. The coordinate recorded is the one a verb
+<strong>offered</strong>, not what it managed to write, and it is maintained only when asked for.</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="scrolling">Scrolling</h2><a class="sl-anchor-link" href="#scrolling"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Scrolling”</span></a></div>
+<ul>
+<li><strong>Scroll area</strong> — a viewport over larger content, moved by an offset the <em>application</em> owns. Cost is proportional to
+the content: right for a form, wrong for a million rows.</li>
+<li><strong>Virtualised collection</strong> — a viewport over an indexed source where the caller draws only the visible range; cost is
+proportional to the window. A different mechanism, not a faster one, and picking the wrong one of the two is the
+single most expensive mistake available above this runtime.</li>
+<li><strong>Scrollable</strong> — where a widget can still move, as four directions rather than two axes, a wheel click being one
+direction.</li>
+<li><strong>Wheel chaining</strong> — the innermost scrollable under the pointer that can still move <em>the way the wheel is going</em>
+consumes the click. Resolved from the previous frame’s index — the one pointer channel that cannot wait for the end
+of the frame. Residue: one click, at each end stop and on an area’s first frame.</li>
+<li><strong>Scroll-into-view</strong> — bringing a newly focused entry into its area’s viewport, resolved at the end of the frame that
+drew, for keyboard-driven moves only, a press proving the widget was on screen. What crosses the frame boundary is an
+offset, never a rectangle; it has no meaning inside a virtualised collection. <strong>The frame that resolves one asks for
+the frame that reads it</strong>, so a loop that parks in <code dir="auto">Driver::wait</code> shows the reveal on that wake and not on whatever the
+user does next.</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="overlays">Overlays</h2><a class="sl-anchor-link" href="#overlays"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Overlays”</span></a></div>
+<ul>
+<li><strong>Overlay</strong> — a layer requested during a draw and drawn after it. The request names an owner, an anchor and a body;
+the body runs after every base-pass draw context is dropped, and its outcome reaches its owner the frame after.</li>
+<li><strong>Owner id</strong> — the identity an overlay keys on, <em>handed to</em> the request rather than derived at it, <code dir="auto">#[track_caller]</code>
+reaching into the body. It roots the overlay’s own id stack, making an overlay a different <em>place</em> for identity.</li>
+<li><strong>Overlay body queue</strong> — one <code dir="auto">Box</code> a body in a <code dir="auto">Vec</code> the frame call owns; <strong>n</strong> bodies cost <strong>n + 1</strong> allocations. It
+replaced the frame arena, the runtime’s only <code dir="auto">unsafe</code> (ADR 0034), and cannot keep capacity across frames.</li>
+<li><strong>Placement</strong> — place, flip, shift, clamp, in that order. A tie keeps the side asked for; clamping never resizes.</li>
+<li><strong>Scrim</strong> — the darkening under a modal: an operator layer, proportional to the screen and not to the overlay, which
+makes it the expensive half.</li>
+<li><strong>Modal barrier</strong> — the hit-index position below which nothing receives the pointer. An <strong>ordering, not a
+membership</strong>, which forces a nested overlay’s z-order to count from its parent’s layer.</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="data">Data</h2><a class="sl-anchor-link" href="#data"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Data”</span></a></div>
+<ul>
+<li><strong>Revision</strong> — a number naming a version of application data and the key a memo is stored under, from <strong>one
+process-global counter</strong>. Bumped once per edit, never per frame or per row.</li>
+<li><strong>Versioned</strong> — a wrapper whose only path to <code dir="auto">&amp;mut</code> is a guard; <code dir="auto">DerefMut</code> is deliberately absent, and that absence is
+the whole mechanism.</li>
+<li><strong>Edit</strong> — the write guard: the <code dir="auto">Revision</code> moves when it <em>drops</em>, which is what makes a bump unforgettable. Three
+deliberate prices — exclusivity while held, a bump for an edit that changed nothing, one revision for the whole value.</li>
+<li><strong>Memo</strong> — a cached result beside the <code dir="auto">Revision</code> it was computed at, keyed by <strong>where it is stored</strong>, so it consumes
+no <code dir="auto">Id</code> and is not swept. The whole of the reactivity here, and it is not reactivity: it is a cache with a key.</li>
+<li><strong>Reactivity layer</strong> — a TEA pump or signal graph, <strong>above</strong> the runtime and never inside it. <strong>Re-running the view is
+the propagation</strong>, a frame drawing less than the screen <em>declaring</em> less than the screen; and a layer wanting to know
+what changed must <strong>diff</strong>, the guard bumping on drop rather than on movement.</li>
+<li><strong>Rows</strong> — <em>refused.</em> The runtime’s would-be only trait, removed by building it; the O(1)-access guarantee it was
+wanted for is prose in both shapes and carried by neither.</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="threads">Threads</h2><a class="sl-anchor-link" href="#threads"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Threads”</span></a></div>
+<ul>
+<li><strong>App thread</strong> — whichever thread the engine was attached on: owns application state, produces and submits frames,
+and is the one whose freezing a user sees.</li>
+<li><strong>Capability token</strong> — a zero-sized proof of being on the app thread that cannot move off it; containing types inherit
+the immobility. <strong>Internal</strong> — no signature takes one. ADR 0003.</li>
+<li><strong>Handle pair</strong> — one shared primitive as two types, so each thread holds only its own verbs; an unreachable method
+needs no enforcement. <strong>Internal</strong>. ADR 0003.</li>
+<li><strong>Frame budget overrun</strong> — an iteration longer than one frame interval, waking to submitting. Its cause is irrelevant
+to its effect: a slow computation and a blocking read give the same frozen screen.</li>
+<li><strong>Permitted iteration</strong> — an iteration declared slow in advance, with a reason. Its cost comes off the iteration, not
+the detector.</li>
+<li><strong>Stall</strong> — an iteration that has not come back at all, as against one that came back late: a different claim, watcher
+and sanction. <strong>Observer</strong> — the debug-only thread watching for one; not a second overrun detector, and it may not
+panic (wrong stack), so its sanction is restore, print, abort.</li>
+<li><strong>One-slot outbox</strong> — where a worker leaves a result: non-blocking take, no blocking twin, newest supersedes, and what
+it displaced goes back to the worker.</li>
+<li><strong>Question</strong> — what a background job is asked, identified by a key the app thread computes. Two requests with one key
+are one question, so asking is idempotent and a component may ask every frame — the only moment immediate mode has.</li>
+<li><strong>Generation</strong> — a monotonic number minted when a question is asked and carried back with the answer; what makes a
+landing rejectable. Deliberately <strong>not</strong> a <code dir="auto">Revision</code>, which answers <em>is this different</em>, never <em>newer</em>.</li>
+<li><strong>Landing</strong> — an answer arriving. A write to application data, belonging at the top of the view; taken mid-draw it
+tears the frame between two widgets reading one field.</li>
+<li><strong>Resident worker</strong> — a background thread with a <strong>one-slot inbox</strong>, asked questions rather than handed functions.
+Inbox, outbox and frame mailbox share one rule — <em>the newest supersedes</em>.</li>
+<li><strong>Cooperative cancel</strong> — a flag a job agrees to poll. There is no other kind: a thread cannot be killed.</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="terminal">Terminal</h2><a class="sl-anchor-link" href="#terminal"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Terminal”</span></a></div>
+<ul>
+<li><strong>Backend</strong> — the seam the terminal library lives behind. <code dir="auto">crossterm</code> sits here, invisible in every public type.</li>
+<li><strong>Negotiation</strong> — the sequences sent once at startup deciding what the terminal will ever report. Not detection, and
+not symmetric: keyboard flags cost nothing at rest and are unconditional; mouse, focus and paste turn an idle
+application into a woken one and are asked for only when declared.</li>
+<li><strong>Restoration</strong> — negotiation backwards plus the alt screen, in the order taken. <strong>Not a method anybody calls</strong>: an
+idempotent function behind one atomic, reached from the panic hook and from <code dir="auto">Screen</code>’s <code dir="auto">Drop</code>. A mode not taken may
+not be given back.</li>
+<li><strong>Actuator</strong> — a call changing what the terminal <em>is</em> rather than what it shows: <code dir="auto">set_mouse</code> and <code dir="auto">set_cursor</code>, both
+<strong>recording rather than writing</strong>, and free in the strong sense — an unchanged value causes no frame.</li>
+<li><strong>Caret</strong> — the terminal’s own cursor, placed after the frame’s last write. The only caret there is; a software one
+costs two wakeups a second. Position, shape and visibility are three separate deltas.</li>
+<li><strong>Capability</strong> — something the terminal can do, and how it is known decides the answer’s shape. <em>Detected</em> by query →
+independent booleans, the world not sorting. <em>Declared</em> by the operator (the repertoire, which no query can ask) → may
+be an ordered ladder, a promise being downward-closed. <em>Inferred</em> (OSC 8) → must be <strong>correctable by a declaration</strong>.
+ADR 0010.</li>
+<li><strong>Repertoire</strong> — the characters the operator promises their font shows: ASCII, Unicode with box drawing and blocks, or
+everything including braille and emoji (<code dir="auto">GlyphSet</code>). A component branches on it rather than the engine substituting
+behind its back.</li>
+<li><strong>Glyph</strong> — a character drawn for structure rather than content: <strong>a lookup with a spelling at every repertoire level,
+every spelling exactly one cell, and no spelling blank.</strong> Anything failing either rule is a <em>branch</em>, not a glyph. The
+table is the <strong>theme’s</strong>; a component names no repertoire. Absence is not representable, and that is the point.</li>
+<li><strong>Distinction</strong> — a difference the user is meant to see, narrowed by the theme to <strong>one bit at construction</strong> from the
+palette as it arrives and the repertoire as declared. <strong>It survives the matrix iff carried on both axes</strong>: told two
+roles do not differ on the wire, a component owes a glyph, a rule or a position, never a darker colour.</li>
+<li><strong>Role</strong> — what a component asks for instead of a colour. <strong>A role names a paint, not a colour</strong> — hence thirteen and
+not twenty-six, pairing being the style literal the no-literals rule forbids. Two roles are the unit degradation is
+measured in, quantisation collapsing <em>pairs</em>.</li>
+<li><strong>Paint</strong> — a resolved style, obtainable only from a <code dir="auto">Theme</code>, its inner value private; a paint <em>is</em> a style once made,
+so the role a cell was painted with cannot be read back (ADR 0018). <code dir="auto">Theme::custom</code> needs a live <code dir="auto">&amp;Theme</code>: what a
+component may never mint is a <strong>palette</strong>. A paint made that way carries no tier guarantee and owes its own branch on
+<code dir="auto">caps()</code>.</li>
+<li><strong>Application palette</strong> — the colours an application ships and a <code dir="auto">Theme</code> is made of: thirteen roles, each a whole paint.
+<strong>Theme registry</strong> — the set a program offers plus which is current, held as <em>application</em> state.</li>
+<li><strong>Swap frame</strong> — the frame the theme changes on: a steady frame plus a full repaint, and where every memo keyed on the
+theme misses at once — which is why a memo carries the theme in its key only when its value is made of paints.</li>
+<li><strong>Operator palette</strong> — the sixteen ANSI colours the <em>terminal</em> is configured with, plus its defaults. No application may
+assume it and nothing in the process can read it, so a role resolved to a palette index has an unknowable distance from
+another (ADR 0007) and a pair count at sixteen colours is a lower bound.</li>
+<li><strong>Quirk</strong> — a correction applied <em>after</em> detection, for a terminal that answers correctly and misbehaves anyway.</li>
+<li><strong>Override</strong> — a capability <strong>pinned</strong> by the caller, in either direction; where <code dir="auto">--ascii</code> and <code dir="auto">--no-color</code> land.
+Precedence: explicit API, <code dir="auto">VITUI_*</code>, <code dir="auto">NO_COLOR</code>, <code dir="auto">TERM=dumb</code> or non-tty, quirks, detection, conservative defaults.
+<strong>An axis is overridable iff nothing measured it, or the engine’s own output depends on it and the person at the
+terminal knows the value.</strong> <code dir="auto">Capabilities</code> is what someone above acts on; <code dir="auto">Overrides</code> is what someone below is told.
+ADR 0010.</li>
+<li><strong>Degradation</strong> — one scene against a weaker terminal without writing it twice. The engine degrades <em>presentation</em>
+silently at serialise time and never <em>content</em>: a glyph is emitted unchanged. A component that cannot express itself at
+a repertoire builds something different. ADR 0009.</li>
+<li><strong>Quantise</strong> — resolving a colour to the nearest the terminal can show, inside the run scan and <em>before</em> the mirror
+comparison — so the mirror holds what the terminal was told.</li>
+</ul>
+<div class="sl-heading-wrapper level-h2"><h2 id="verification">Verification</h2><a class="sl-anchor-link" href="#verification"><span aria-hidden="true" class="sl-anchor-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m12.11 15.39-3.88 3.88a2.52 2.52 0 0 1-3.5 0 2.47 2.47 0 0 1 0-3.5l3.88-3.88a1 1 0 1 0-1.42-1.42l-3.88 3.89a4.48 4.48 0 0 0 6.33 6.33l3.89-3.88a1 1 0 0 0-1.42-1.42m8.58-12.08a4.49 4.49 0 0 0-6.33 0l-3.89 3.88a1 1 0 1 0 1.42 1.42l3.88-3.88a2.52 2.52 0 0 1 3.5 0 2.47 2.47 0 0 1 0 3.5l-3.88 3.88a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.88-3.89a4.49 4.49 0 0 0 0-6.33M8.83 15.17a1 1 0 0 0 .71.29 1 1 0 0 0 .71-.29l4.92-4.92a1 1 0 1 0-1.42-1.42l-4.92 4.92a1 1 0 0 0 0 1.42"></path></svg></span><span class="sr-only" data-pagefind-ignore>Section titled “Verification”</span></a></div>
+<ul>
+<li><strong>Gate</strong> — a check that fails a build: a <strong>count</strong>, <strong>ratio</strong>, <strong>equality</strong> or <strong>compile outcome</strong>, never a timing except
+the cliff shape below. A number asserted nowhere is not a gate, however often it is quoted.</li>
+<li><strong>Report</strong> — a committed, read measurement that gates nothing (every <code dir="auto">examples/*_numbers.rs</code>), and may not be
+load-bearing for a gate.</li>
+<li><strong>Consumer gate</strong> — a gate whose subject is a program written <em>against</em> the surface and built by CI: every application in
+<code dir="auto">crates/vitui-apps/examples/</code>. They catch a different class, because <strong>a gate exercises a component where its author put
+it and an application puts it somewhere else</strong>. O7 makes <em>every component has one</em> a query.</li>
+<li><strong>Path join</strong> — matching a name through the module it is declared in, so <code dir="auto">keys::text</code> and <code dir="auto">text::text</code> are different
+pairs. A bare-name scan here has been wrong at least twice.</li>
+<li><strong>Pair</strong> — a <code dir="auto">```compile_fail</code> block and an ordinary block in one rustdoc, differing in exactly the hostile line.
+Neither half is a gate alone: deleting the hostile line is caught by the first, renaming the protected item only by the
+second, and <strong>only if the second names it by path</strong>. The error code is documentation, unenforced on stable.</li>
+<li><strong>Cliff</strong> — a regression as a large absolute cost on one scene, caught by a timing gate <strong>sitting at the budget</strong>, never
+at the current measurement.</li>
+<li><strong>Slope</strong> — a regression in how cost grows with widget count, caught by a <strong>growth ratio</strong> across two sizes and by
+nothing else; most quadratics on this map have been slopes.</li>
+<li><strong>Work counter</strong> — steps taken <strong>inside</strong> a visit, as against the counters of what a frame puts on the wire. Every output
+counter is blind to work producing no output. <code dir="auto">painted</code> beside <code dir="auto">touched</code> — the pair, never either alone.</li>
+<li><strong>Per-input ceiling</strong> — <code dir="auto">fixed + per_input * n</code>, gated <strong>beside</strong> a slope, not instead: a slope is blind to a constant and
+a ceiling is met by a large enough one. A component whose cost is its visible window has no <code dir="auto">n</code> in its ceiling at all.</li>
+<li><strong>Attribution window</strong> — the span an assertion is taken over, and <em>whose</em> work it describes. The allocation probe is
+process-global, so a window overlapping a worker attributes the worker’s growth to the frame.</li>
+<li><strong>Scene list</strong> — the fixed set of screens every gate and report is measured against; part of the gate, not an appendix,
+since scenes scoring identically on every candidate validate the wrong design while reporting success. A scene is removed
+only by a ticket naming the property it can no longer distinguish.</li>
+<li><strong>Round trip</strong> — the primary instrument: composite, serialise, replay through the terminal model, assert the replayed
+screen equals the frame. It stores nothing — and cannot see a defect the serializer and the model share.</li>
+<li><strong>Golden frame</strong> — the residue the round trip cannot reach: the composited <strong>picture</strong>, as two fixed-width planes (glyph
+and style) over a legend, with a row gutter and a header naming scene, frame, size and tier. Blessed with
+<code dir="auto">VITUI_BLESS=1</code>; the review is the git diff. Never a golden <strong>byte string</strong> — the encoding is the part allowed to change.</li>
+</ul>
+</div><footer class="sl-flex astro-ddtxxk7k"><div class="meta sl-flex astro-ddtxxk7k"><a href="https://github.com/vitui-rs/vitui/edit/master/CONTEXT.md" class="sl-flex print:hidden astro-qlekgd3o"><svg aria-hidden="true" class="astro-qlekgd3o astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.2em;"><path d="M22 7.24a1 1 0 0 0-.29-.71l-4.24-4.24a1 1 0 0 0-1.1-.22 1 1 0 0 0-.32.22l-2.83 2.83L2.29 16.05a1 1 0 0 0-.29.71V21a1 1 0 0 0 1 1h4.24a1 1 0 0 0 .76-.29l10.87-10.93L21.71 8c.1-.1.17-.2.22-.33a1 1 0 0 0 0-.24v-.14l.07-.05ZM6.83 20H4v-2.83l9.93-9.93 2.83 2.83L6.83 20ZM18.17 8.66l-2.83-2.83 1.42-1.41 2.82 2.82-1.41 1.42Z"/></svg>Edit page</a></div><div class="pagination-links print:hidden astro-b5raizh3" dir="ltr"><a href="/terminals/" rel="prev" class="astro-b5raizh3"><svg aria-hidden="true" class="astro-b5raizh3 astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.5rem;"><path d="M17 11H9.41l3.3-3.29a1.004 1.004 0 1 0-1.42-1.42l-5 5a1 1 0 0 0-.21.33 1 1 0 0 0 0 .76 1 1 0 0 0 .21.33l5 5a1.002 1.002 0 0 0 1.639-.325 1 1 0 0 0-.219-1.095L9.41 13H17a1 1 0 0 0 0-2Z"/></svg><span class="astro-b5raizh3">Previous<br class="astro-b5raizh3"><span class="link-title astro-b5raizh3">Terminals</span></span></a><a href="/spec/components/" rel="next" class="astro-b5raizh3"><svg aria-hidden="true" class="astro-b5raizh3 astro-hkc32dio" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1.5rem;"><path d="M17.92 11.62a1.001 1.001 0 0 0-.21-.33l-5-5a1.003 1.003 0 1 0-1.42 1.42l3.3 3.29H7a1 1 0 0 0 0 2h7.59l-3.3 3.29a1.002 1.002 0 0 0 .325 1.639 1 1 0 0 0 1.095-.219l5-5a1 1 0 0 0 .21-.33 1 1 0 0 0 0-.76Z"/></svg><span class="astro-b5raizh3">Next<br class="astro-b5raizh3"><span class="link-title astro-b5raizh3">`vitui-components` — architecture spec</span></span></a></div></footer></div></div></main></div></div></div></div></body></html>
